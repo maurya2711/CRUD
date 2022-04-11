@@ -50,3 +50,15 @@ exports.update = function (req, res) {
     });
   res.sendStatus(200);
 };
+
+exports.delete = function (req, res) {
+  collection
+    .deleteOne({ name: req.body.name })
+    .then((result) => {
+      console.log("result of delete request", result);
+      res.json(`Deleted Darth Vadar's quote`);
+    })
+    .catch((err) => {
+      console.log("error in delete request", err);
+    });
+};
