@@ -36,18 +36,12 @@ exports.update = function (req, res) {
   console.log("Update", req.body);
   collection
     .findOneAndUpdate(
-      { name: "joker" },
+      { name: req.body.name },
       { $set: { name: req.body.name, quote: req.body.quote } },
       { upsert: true }
     )
-    .then((result) => {
-      console.log("result of put request", result);
-      res.json("sucess");
-    })
-    .catch((err) => {
-      console.log("error in put request", err);
-      console.error(err);
-    });
+    .then((result) => res.json("Success"))
+    .catch((error) => console.error(error));
   res.sendStatus(200);
 };
 

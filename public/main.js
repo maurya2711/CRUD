@@ -7,25 +7,23 @@ const deleteButton = document.querySelector("#delete-button");
 console.log("Update Button clicked");
 
 update.addEventListener("click", (_) => {
-  // let name = document.getElementById("updateName").value;
-  // let quote = document.getElementById("update-quote").value;
-  console.log("Update Button clicked", name);
+  let name = document.getElementById("updateName").value;
+  let quote = document.getElementById("update-quote").value;
+  console.log("Update Button clicked");
   fetch("/products/create", {
     method: "put",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      name: "Darth Vader",
-      quote: "Luke I find you lack of faith disturbing",
+      name: name,
+      quote: quote,
     }),
   })
     .then((res) => {
-      if (res.ok) return res.json();
+      if (res.ok) return JSON.stringify(res);
     })
     .then((response) => {
-      console.log(response);
-      // window.location.reload(true);
+      window.location.reload(true);
     });
-  null;
 });
 
 deleteButton.addEventListener("click", (_) => {
