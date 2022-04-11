@@ -33,7 +33,7 @@ exports.create = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  // console.log("Update", req.body);
+  console.log("Update", req.body);
   collection
     .findOneAndUpdate(
       { name: "joker" },
