@@ -37,6 +37,6 @@ deleteButton.addEventListener("click", (_) => {
     })
     .then((response) => {
       console.log("delete Response", response);
-      // window.location.reload();
+      window.location.reload();
     });
 });
